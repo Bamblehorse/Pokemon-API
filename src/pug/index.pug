@@ -1,0 +1,50 @@
+doctype html
+html(lang="en" ng-app="angularAPI")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= "Pokemon API"
+    script(src="https://use.fontawesome.com/54cee556df.js")
+    link(href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Righteous" rel="stylesheet")
+    link(rel="stylesheet" href="css/style.css")
+    script(src="js/angular.min.js")
+    script(src="js/app.js")
+
+  body(ng-controller="MainCtrl")
+    header
+        h1 Pokemon Loader
+        h4
+            em - built with AngularJS and Pokeapi.co
+    form(ng)
+    section(class="choose")
+        h2 Choose a Pokemon:
+        button(class="pokemonButton" ng-disabled="!list[position].previous" ng-click="previous()") Load Previous
+        button(class="pokemonButton" ng-disabled="!list[position].next" ng-click="next()") Load Next
+
+        h2(ng-hide="list[position]")
+            i(class="fa fa-cog fa-spin fa-fw")
+            span Loading List...
+        section(ng-show="list[position]")
+            h3 {{position*20}} to {{(position + 1)*20}} of {{list[position].count}} Pokemon
+            button(class="pokemonButton" ng-repeat="result in list[position].results" ng-click="requestPokemon(result.url)") {{result.name | uppercase}}
+    section(class="pokemon")
+        h2 Pokemon: {{totalPokemon}}
+        article(ng-repeat="data in pokemon" class="card")
+            h2 {{data.name}}
+            h4 Height: {{data.height}}
+            h4 Weight: {{data.weight}}
+            img(ng-src="{{data.sprites.front_default}}")
+            img(ng-src="{{data.sprites.back_default}}")
+            h5(ng-repeat="stat in data.stats | orderBy:'-'") {{stat.stat.name}}: {{stat.base_stat}}
+        article(ng-show="totalPokemon > pokemon.length" class="card")
+            h2
+                i(class="fa fa-cog fa-spin fa-fw")
+                span Loading...
+            h4 Weight: ?
+            h4 Height: ?
+            i(class="fa fa-question fa-5x")
+            img(ng-src="{{data.sprites.back_default}}")
+            h5(ng-repeat="stat in loadStats") {{stat}}: ?
+    footer
+        a(href="https://jonathandwood.github.io/")
+            button(class="pokemonButton") created by Jonathan Wood
