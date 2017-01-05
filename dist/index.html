@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularAPI">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemon API</title>
+    <script src="https://use.fontawesome.com/54cee556df.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="MainCtrl">
+    <header>
+      <h1>Pokemon Loader</h1>
+      <h4><em>- built with AngularJS and Pokeapi.co</em></h4>
+    </header>
+    <form ng></form>
+    <section class="choose">
+      <h2>Choose a Pokemon:</h2>
+      <button class="pokemonButton" ng-disabled="!list[position].previous" ng-click="previous()">Load Previous</button>
+      <button class="pokemonButton" ng-disabled="!list[position].next" ng-click="next()">Load Next</button>
+      <h2 ng-hide="list[position]"><i class="fa fa-cog fa-spin fa-fw"></i><span>Loading List...</span></h2>
+      <section ng-show="list[position]">
+        <h3>{{position*20}} to {{(position + 1)*20}} of {{list[position].count}} Pokemon</h3>
+        <button class="pokemonButton" ng-repeat="result in list[position].results" ng-click="requestPokemon(result.url)">{{result.name | uppercase}}</button>
+      </section>
+    </section>
+    <section class="pokemon">
+      <h2>Pokemon: {{totalPokemon}}</h2>
+      <article class="card" ng-repeat="data in pokemon">
+        <h2>{{data.name}}</h2>
+        <h4>Height: {{data.height}}</h4>
+        <h4>Weight: {{data.weight}}</h4><img ng-src="{{data.sprites.front_default}}"><img ng-src="{{data.sprites.back_default}}">
+        <h5 ng-repeat="stat in data.stats | orderBy:'-'">{{stat.stat.name}}: {{stat.base_stat}}</h5>
+      </article>
+      <article class="card" ng-show="totalPokemon &gt; pokemon.length">
+        <h2><i class="fa fa-cog fa-spin fa-fw"></i><span>Loading...</span></h2>
+        <h4>Weight: ?</h4>
+        <h4>Height: ?</h4><i class="fa fa-question fa-5x"></i><img ng-src="{{data.sprites.back_default}}">
+        <h5 ng-repeat="stat in loadStats">{{stat}}: ?</h5>
+      </article>
+    </section>
+    <footer><a href="https://jonathandwood.github.io/">
+        <button class="pokemonButton">created by Jonathan Wood</button></a></footer>
+  </body>
+</html>
