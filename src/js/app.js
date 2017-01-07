@@ -8,7 +8,7 @@ PokemonFactory.$inject = ['$http'];
 
 function PokemonFactory($http) {
 	var self = this;
-		self.url = 'http://pokeapi.co/api/v2/pokemon/';
+		self.url = 'https://pokeapi.co/api/v2/pokemon/';
 		factory = {};
 		factory.pokemon = [];
 		factory.list = [];
