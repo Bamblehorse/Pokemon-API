@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "Pokemon-API",
   "version": "1.0.0",
-  "description": "Simple Gulp Workflow",
+  "description": "Pokemon Loader",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
