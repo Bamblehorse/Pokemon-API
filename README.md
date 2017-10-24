@@ -1,5 +1,5 @@
 # Pokemon API
-
+ 
 AngularJS app which loads pokemon data from [Pokéapi](http://pokeapi.co/) via http requests and displays them as a collection. Pokemon already loaded are not requested again, they are cached. Built with [Pug](https://pugjs.org/api/getting-started.html), [Sass](http://sass-lang.com/) and [Gulp](http://gulpjs.com/).
 
 See the project [here](https://jonathandwood.github.io/Pokemon-API/dist/).
