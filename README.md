@@ -1,8 +1,9 @@
 # Pokemon API
 
-AngularJS app which loads pokemon data from [Pokéapi](http://pokeapi.co/) via http requests and displays them as a collection. Pokemon already loaded are not requested again, they are cached. Built with [Pug](https://pugjs.org/api/getting-started.html), [Sass](http://sass-lang.com/) and [Gulp](http://gulpjs.com/).
+TL;DR **Check it out here:** :zap:[Compare some Pokemon](https://jonathandwood.github.io/Pokemon-API/dist/):zap: :octocat:
 
-See the project [here](https://jonathandwood.github.io/Pokemon-API/dist/).
+AngularJS app which loads pokemon data from [Pokéapi](http://pokeapi.co/) via http requests and displays them as a collection. Pokemon already loaded are not requested again, they are cached. Built with [Pug](https://pugjs.org/api/getting-started.html), [Sass](http://sass-lang.com/) and [Gulp](http://gulpjs.com/).
+![image](https://user-images.githubusercontent.com/20028526/38144155-a34bc738-3411-11e8-8f39-0d6f21fb566a.png)
 
 
 ## Getting Started
@@ -14,7 +15,7 @@ You will need the following tools to run the project:
 * [Node.js and Npm](https://nodejs.org/en/download/)
 
 ### Installing
-Navigate to a folder on your machine where you are happy to place the project folder.
+Navigate to a folder on your machine where you are happy to place the project folder.P
 
 Open up your command-line interface and type:
 ```
